@@ -68,10 +68,15 @@ void input()
         {
             jing[temp] = status;
             if (status = 1)
+            {
                 status = 2;
+                break;
+            }
             else if (status = 2)
+            {
                 status = 1;
-            break;
+                break;
+            }
         }
         else if (jing[temp] == 1 || jing[temp] == 2)
         {
