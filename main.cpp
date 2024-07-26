@@ -1,3 +1,6 @@
+// Copyright (C) 2024 BlazeSnow
+// 保留所有权利
+// 本程序以GNU General Public License v3.0的条款发布
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -37,6 +40,11 @@ char pring_jing_words(int number)
 void print_jing()
 {
     system("cls");
+    cout << "Copyright (C) 2024 BlazeSnow.保留所有权利。" << endl;
+    cout << "本程序以GNU General Public License v3.0的条款发布。" << endl;
+    cout << "当前程序版本号：v1.0.0" << endl;
+    cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl
+         << endl;
     cout << " 1 " << pring_jing_words(jing[0]) << " |";
     cout << " 2 " << pring_jing_words(jing[1]) << " |";
     cout << " 3 " << pring_jing_words(jing[2]) << " |";
@@ -148,6 +156,21 @@ int success()
     {
         print_jing();
         cout << pring_jing_words(answer) << "赢了" << endl;
+        return 1;
+    }
+    answer = 0;
+    int count = 0;
+    for (auto i : jing)
+    {
+        if (i == answer)
+        {
+            count++;
+        }
+    }
+    if (count == 0)
+    {
+        print_jing();
+        cout << "平局" << endl;
         return 1;
     }
     return 0;
