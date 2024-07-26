@@ -88,6 +88,36 @@ void input()
 
 int success()
 {
+    int answer = 1;
+    if (
+        (jing[0] == answer && jing[1] == answer && jing[2] == answer) ||
+        (jing[3] == answer && jing[4] == answer && jing[5] == answer) ||
+        (jing[6] == answer && jing[7] == answer && jing[8] == answer) ||
+        (jing[0] == answer && jing[3] == answer && jing[6] == answer) ||
+        (jing[1] == answer && jing[4] == answer && jing[7] == answer) ||
+        (jing[2] == answer && jing[5] == answer && jing[8] == answer) ||
+        (jing[0] == answer && jing[4] == answer && jing[8] == answer) ||
+        (jing[2] == answer && jing[4] == answer && jing[6] == answer))
+    {
+        print_jing();
+        cout << pring_jing_words(answer) << "赢了" << endl;
+        return 1;
+    }
+    answer = 2;
+    if (
+        (jing[0] == answer && jing[1] == answer && jing[2] == answer) ||
+        (jing[3] == answer && jing[4] == answer && jing[5] == answer) ||
+        (jing[6] == answer && jing[7] == answer && jing[8] == answer) ||
+        (jing[0] == answer && jing[3] == answer && jing[6] == answer) ||
+        (jing[1] == answer && jing[4] == answer && jing[7] == answer) ||
+        (jing[2] == answer && jing[5] == answer && jing[8] == answer) ||
+        (jing[0] == answer && jing[4] == answer && jing[8] == answer) ||
+        (jing[2] == answer && jing[4] == answer && jing[6] == answer))
+    {
+        print_jing();
+        cout << pring_jing_words(answer) << "赢了" << endl;
+        return 1;
+    }
     return 0;
 }
 
@@ -101,6 +131,7 @@ int main()
         if (success() == 1)
             break;
     }
+    system("pause");
     system("pause");
     return 0;
 }
