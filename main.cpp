@@ -5,6 +5,8 @@
 using namespace std;
 
 int jing[9] = {0};
+// X是1，O是2
+int status = 1;
 
 char pring_jing_words(int number)
 {
@@ -44,6 +46,30 @@ void print_jing()
     cout << " 8 " << pring_jing_words(jing[7]) << " |";
     cout << " 9 " << pring_jing_words(jing[8]) << " |";
     cout << endl;
+}
+
+void input()
+{
+    int temp;
+    while (true)
+    {
+        cout << "请输入下子位置：" << endl;
+        cin >> temp;
+        if (temp < 1 || temp > 9)
+        {
+            cout << "输入数字应当在1~9之间" << endl;
+            continue;
+        }
+        if (jing[temp] == 0)
+        {
+            jing[temp] = status;
+            break;
+        }
+        else if (jing[temp] == 1 || jing[temp] == 2)
+        {
+            cout << temp << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
+        }
+    }
 }
 
 int main()
