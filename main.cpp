@@ -68,12 +68,12 @@ void input()
         if (jing[temp] == 0)
         {
             jing[temp] = status;
-            if (status = 1)
+            if (status == 1)
             {
                 status = 2;
                 break;
             }
-            else if (status = 2)
+            else if (status == 2)
             {
                 status = 1;
                 break;
