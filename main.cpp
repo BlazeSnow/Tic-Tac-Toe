@@ -60,6 +60,10 @@ void input()
             cout << "输入数字应当在1~9之间" << endl;
             continue;
         }
+        else
+        {
+            temp = temp - 1;
+        }
         if (jing[temp] == 0)
         {
             jing[temp] = status;
