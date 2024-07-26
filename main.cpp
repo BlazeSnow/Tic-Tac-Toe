@@ -53,7 +53,7 @@ void input()
     int temp;
     while (true)
     {
-        cout << "请输入下子位置：" << endl;
+        cout << "请输入" << pring_jing_words(status) << "下子位置：" << endl;
         cin >> temp;
         if (temp < 1 || temp > 9)
         {
@@ -63,6 +63,10 @@ void input()
         if (jing[temp] == 0)
         {
             jing[temp] = status;
+            if (status = 1)
+                status = 2;
+            else if (status = 2)
+                status = 1;
             break;
         }
         else if (jing[temp] == 1 || jing[temp] == 2)
@@ -72,10 +76,21 @@ void input()
     }
 }
 
+int success()
+{
+    return 0;
+}
+
 int main()
 {
     system("chcp 65001");
-    print_jing();
+    while (true)
+    {
+        print_jing();
+        input();
+        if (success() == 1)
+            break;
+    }
     system("pause");
     return 0;
 }
