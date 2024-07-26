@@ -89,32 +89,32 @@ void input()
     }
 }
 
-// 打印棋盘到txt文件
-void print_jing_txt()
+// 打印棋盘到csv文件
+void print_jing_csv()
 {
-    fstream file("Tic-Tac-Toe.txt", ios::out);
+    fstream file("Tic-Tac-Toe.csv", ios::out);
     if (file.is_open())
     {
-        file << " 1 " << pring_jing_words(jing[0]) << " |";
-        file << " 2 " << pring_jing_words(jing[1]) << " |";
-        file << " 3 " << pring_jing_words(jing[2]) << " |";
+        file << pring_jing_words(jing[0]) << ",";
+        file << pring_jing_words(jing[1]) << ",";
+        file << pring_jing_words(jing[2]) << ",";
         file << endl;
-        file << " 4 " << pring_jing_words(jing[3]) << " |";
-        file << " 5 " << pring_jing_words(jing[4]) << " |";
-        file << " 6 " << pring_jing_words(jing[5]) << " |";
+        file << pring_jing_words(jing[3]) << ",";
+        file << pring_jing_words(jing[4]) << ",";
+        file << pring_jing_words(jing[5]) << ",";
         file << endl;
-        file << " 7 " << pring_jing_words(jing[6]) << " |";
-        file << " 8 " << pring_jing_words(jing[7]) << " |";
-        file << " 9 " << pring_jing_words(jing[8]) << " |";
+        file << pring_jing_words(jing[6]) << ",";
+        file << pring_jing_words(jing[7]) << ",";
+        file << pring_jing_words(jing[8]) << ",";
         file << endl;
         file.close();
         cout << "打印棋盘成功" << endl;
-        cout << "文件名：\"Tic-Tac-Toe.txt\"" << endl;
+        cout << "文件名：\"Tic-Tac-Toe.csv\"" << endl;
         cout << "路径：" << filesystem::current_path() << endl;
     }
     else
     {
-        cout << "ERROR:打印棋盘到txt失败" << endl;
+        cout << "ERROR:打印棋盘到csv失败" << endl;
     }
 }
 
@@ -161,7 +161,10 @@ int main()
         print_jing();
         input();
         if (success() == 1)
+        {
+            print_jing_csv();
             break;
+        }
     }
     system("pause");
     return 0;
