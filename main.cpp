@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-// #include <cstdlib>
 
 using namespace std;
 
@@ -8,6 +7,7 @@ int jing[9] = {0};
 // X是1，O是2
 int status = 1;
 
+// 数字转 XO
 char pring_jing_words(int number)
 {
     if (number == 0)
@@ -31,6 +31,7 @@ char pring_jing_words(int number)
     }
 }
 
+// 打印棋盘
 void print_jing()
 {
     system("cls");
