@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <filesystem>
 
 using namespace std;
 
@@ -49,6 +51,7 @@ void print_jing()
     cout << endl;
 }
 
+// 输入内容-下棋
 void input()
 {
     while (true)
@@ -83,6 +86,35 @@ void input()
         {
             cout << temp << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
         }
+    }
+}
+
+// 打印棋盘到txt文件
+void print_jing_txt()
+{
+    fstream file("Tic-Tac-Toe.txt", ios::out);
+    if (file.is_open())
+    {
+        file << " 1 " << pring_jing_words(jing[0]) << " |";
+        file << " 2 " << pring_jing_words(jing[1]) << " |";
+        file << " 3 " << pring_jing_words(jing[2]) << " |";
+        file << endl;
+        file << " 4 " << pring_jing_words(jing[3]) << " |";
+        file << " 5 " << pring_jing_words(jing[4]) << " |";
+        file << " 6 " << pring_jing_words(jing[5]) << " |";
+        file << endl;
+        file << " 7 " << pring_jing_words(jing[6]) << " |";
+        file << " 8 " << pring_jing_words(jing[7]) << " |";
+        file << " 9 " << pring_jing_words(jing[8]) << " |";
+        file << endl;
+        file.close();
+        cout << "打印棋盘成功" << endl;
+        cout << "文件名：\"Tic-Tac-Toe.txt\"" << endl;
+        cout << "路径：" << filesystem::current_path() << endl;
+    }
+    else
+    {
+        cout << "ERROR:打印棋盘到txt失败" << endl;
     }
 }
 
@@ -131,7 +163,6 @@ int main()
         if (success() == 1)
             break;
     }
-    system("pause");
     system("pause");
     return 0;
 }
