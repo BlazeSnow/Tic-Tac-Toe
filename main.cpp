@@ -50,10 +50,10 @@ void print_jing()
 
 void input()
 {
-    int temp;
     while (true)
     {
         cout << "请输入" << pring_jing_words(status) << "下子位置：" << endl;
+        int temp;
         cin >> temp;
         if (temp < 1 || temp > 9)
         {
@@ -62,7 +62,7 @@ void input()
         }
         else
         {
-            temp = temp - 1;
+            temp--;
         }
         if (jing[temp] == 0)
         {
