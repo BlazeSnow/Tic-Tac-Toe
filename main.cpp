@@ -8,12 +8,50 @@
 
 using namespace std;
 
+// 棋盘
 int jing[9] = {0};
 // X是1，O是2
 int status = 1;
-
+// X和O的位置序列，下第4个棋时，清除棋盘上第一个棋
 vector<int> status_X;
 vector<int> status_O;
+// 棋盘上允许有几个棋
+int number_chess_permitted = 3;
+// 游戏模式，0为正常模式，1为仅有3个棋子模式
+int GameMode = -1;
+
+void write_status_X_O(int position)
+{
+    if (status == 1)
+    {
+        status_X.push_back(position);
+    }
+    else if (status == 2)
+    {
+        status_O.push_back(position);
+    }
+    else
+    {
+        cout << endl
+             << "ERROR:棋手状态出现错误" << endl;
+        system("pause");
+        exit(-1);
+    }
+}
+
+void check_chess_out_permitted()
+{
+    if (status_X.size() > number_chess_permitted)
+    {
+        jing[status_X.front()] = 0;
+        status_X.erase(status_X.begin());
+    }
+    if (status_O.size() > number_chess_permitted)
+    {
+        jing[status_O.front()] = 0;
+        status_O.erase(status_O.begin());
+    }
+}
 
 // 数字转 XO
 char pring_jing_words(int number)
@@ -45,9 +83,19 @@ void print_jing()
     system("cls");
     cout << "Copyright (C) 2024 BlazeSnow.保留所有权利。" << endl;
     cout << "本程序以GNU General Public License v3.0的条款发布。" << endl;
-    cout << "当前程序版本号：v1.0.0" << endl;
+    cout << "当前程序版本号：v1.1.0" << endl;
     cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl
          << endl;
+    if (GameMode == 0)
+    {
+        cout << "当前模式为：普通模式" << endl
+             << endl;
+    }
+    else if (GameMode == 1)
+    {
+        cout << "当前模式为：仅有3个棋子模式" << endl
+             << endl;
+    }
     cout << " 1 " << pring_jing_words(jing[0]) << " |";
     cout << " 2 " << pring_jing_words(jing[1]) << " |";
     cout << " 3 " << pring_jing_words(jing[2]) << " |";
@@ -82,6 +130,7 @@ void input()
         if (jing[temp] == 0)
         {
             jing[temp] = status;
+            write_status_X_O(temp);
             if (status == 1)
             {
                 status = 2;
@@ -182,10 +231,27 @@ int success()
 int main()
 {
     system("chcp 65001");
+    cout << "正常模式(0)或仅有3个棋子模式(1)：" << endl;
+    cin >> GameMode;
+    if (GameMode == 0)
+    {
+        number_chess_permitted = INT_MAX;
+    }
+    else if (GameMode == 1)
+    {
+        number_chess_permitted = 3;
+    }
+    else
+    {
+        cout << "ERROR:输入不合法" << endl;
+        system("pause");
+        exit(1);
+    }
     while (true)
     {
         print_jing();
         input();
+        check_chess_out_permitted();
         if (success() == 1)
         {
             print_jing_csv();
