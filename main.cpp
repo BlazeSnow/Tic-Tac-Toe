@@ -8,6 +8,15 @@
 
 using namespace std;
 
+void BlazeSnow_copyright_print()
+{
+    cout << "Copyright (C) 2024 BlazeSnow.保留所有权利。" << endl;
+    cout << "本程序以GNU General Public License v3.0的条款发布。" << endl;
+    cout << "当前程序版本号：v1.1.0" << endl;
+    cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl
+         << endl;
+}
+
 // 棋盘
 int jing[9] = {0};
 // X是1，O是2
@@ -81,11 +90,7 @@ char pring_jing_words(int number)
 void print_jing()
 {
     system("cls");
-    cout << "Copyright (C) 2024 BlazeSnow.保留所有权利。" << endl;
-    cout << "本程序以GNU General Public License v3.0的条款发布。" << endl;
-    cout << "当前程序版本号：v1.1.0" << endl;
-    cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl
-         << endl;
+    BlazeSnow_copyright_print();
     if (GameMode == 0)
     {
         cout << "当前模式为：普通模式" << endl
@@ -231,6 +236,8 @@ int success()
 int main()
 {
     system("chcp 65001");
+    system("cls");
+    BlazeSnow_copyright_print();
     cout << "正常模式(0)或仅有3个棋子模式(1)：" << endl;
     cin >> GameMode;
     if (GameMode == 0)
