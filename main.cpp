@@ -12,7 +12,7 @@ void BlazeSnow_copyright_print()
 {
     cout << "Copyright (C) 2024 BlazeSnow.保留所有权利。" << endl;
     cout << "本程序以GNU General Public License v3.0的条款发布。" << endl;
-    cout << "当前程序版本号：v1.1.0" << endl;
+    cout << "当前程序版本号：v1.1.1" << endl;
     cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl
          << endl;
 }
@@ -149,7 +149,7 @@ void input()
         }
         else if (jing[temp] == 1 || jing[temp] == 2)
         {
-            cout << temp << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
+            cout << temp + 1 << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
         }
     }
 }
