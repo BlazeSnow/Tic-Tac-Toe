@@ -12,6 +12,9 @@ int jing[9] = {0};
 // X是1，O是2
 int status = 1;
 
+vector<int> status_X;
+vector<int> status_O;
+
 // 数字转 XO
 char pring_jing_words(int number)
 {
