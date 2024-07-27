@@ -149,7 +149,7 @@ void input()
         }
         else if (jing[temp] == 1 || jing[temp] == 2)
         {
-            cout << temp << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
+            cout << temp + 1 << "号位置有" << pring_jing_words(jing[temp]) << "了" << endl;
         }
     }
 }
