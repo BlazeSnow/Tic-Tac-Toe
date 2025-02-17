@@ -5,6 +5,12 @@
 
 using namespace std;
 
+void BlazeSnow_copyright_print() {
+  cout << "Copyright (C) 2024-2025 BlazeSnow. 保留所有权利。" << endl;
+  cout << "当前程序版本号：v1.1.3" << endl;
+  cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl << endl;
+}
+
 // 棋盘
 int jing[9] = {0};
 // X是1，O是2
@@ -177,9 +183,7 @@ int success() {
 int main() {
   system("chcp 65001");
   system("cls");
-  cout << "Copyright (C) 2024-2025 BlazeSnow. 保留所有权利。" << endl;
-  cout << "当前程序版本号：v1.1.3" << endl;
-  cout << "https://github.com/BlazeSnow/Tic-Tac-Toe" << endl << endl;
+  BlazeSnow_copyright_print();
   cout << "正常模式(0)或仅有3个棋子模式(1)：" << endl;
   cin >> GameMode;
   if (GameMode == 0) {
