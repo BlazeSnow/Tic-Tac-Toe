@@ -4,7 +4,27 @@
 #include <fstream>
 #include <vector>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 using namespace std;
+
+void clearConsole() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void enterToContinue() {
+    printf("按回车键继续...");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+    }
+    getchar();
+}
 
 void copyrightPrint() {
     printf("Copyright (C) 2024-2026 BlazeSnow. 保留所有权利。\n");
@@ -25,7 +45,7 @@ void writeStatusXO(int position) {
         status_O.push_back(position);
     } else {
         printf("\nERROR:棋手状态出现错误\n");
-        system("pause");
+        enterToContinue();
         exit(-1);
     }
 }
@@ -50,13 +70,13 @@ char printJingWords(int number) {
         return 'O';
     } else {
         printf("\nERROR:棋盘内容出现错误\n");
-        system("pause");
+        enterToContinue();
         exit(-1);
     }
 }
 
 void printJing() {
-    system("cls");
+    clearConsole();
     copyrightPrint();
     if (GameMode == 0) {
         printf("当前模式为：普通模式\n\n");
@@ -138,7 +158,7 @@ int success() {
         return 1;
     }
     int count = 0;
-    for (auto i : jing) {
+    for (auto i: jing) {
         if (i == 0) {
             count++;
         }
@@ -152,8 +172,12 @@ int success() {
 }
 
 int main() {
-    system("chcp 65001");
-    system("cls");
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+#endif
+
+    clearConsole();
     copyrightPrint();
     printf("正常模式(0)或仅有3个棋子模式(1)：\n");
     scanf("%d", &GameMode);
@@ -163,7 +187,7 @@ int main() {
         number_chess_permitted = 3;
     } else {
         printf("ERROR:输入不合法\n");
-        system("pause");
+        enterToContinue();
         exit(1);
     }
     while (true) {
@@ -175,6 +199,6 @@ int main() {
             break;
         }
     }
-    system("pause");
+    enterToContinue();
     return 0;
 }
