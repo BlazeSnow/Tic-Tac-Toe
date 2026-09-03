@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <climits> // for linux
 #include <filesystem>
 #include <fstream>
 #include <vector>
