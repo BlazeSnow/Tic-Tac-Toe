@@ -28,7 +28,7 @@ void enterToContinue() {
 }
 
 void copyrightPrint() {
-    printf("Copyright (C) 2024-2026 BlazeSnow. 保留所有权利。\n");
+    printf("Copyright (C) 2024-2026 BlazeSnow.\n");
     printf("https://github.com/BlazeSnow/Tic-Tac-Toe\n\n");
 }
 
